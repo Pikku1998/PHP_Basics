@@ -6,21 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.php" method="get">
-        <label for="">UserId:</label>
-        <input type="text" name='user'>
-        
-        <label for="">password:</label>
-        <input type="password" name='password'>
+    <form action="index.php" method="post">
 
-        <input type="submit" value="Log In">
+        <label for="">Price: Rs.130/-</label>
+        <br>
+        
+        <label for="">Quantity</label>
+        <input type="text" name='quantity'>
+        <br>
+
+        <input type="submit" value="Order">
     </form>
     
 </body>
 </html>
 
 <?php
-    echo $_GET['user'],'<br>';
-    echo $_GET['password'];
+    $item = "Biryani";
+    $price = 130;
+    $quantity = $_POST['quantity'];
+    $total = $quantity * $price;
+    echo "You have ordered {$quantity} biryanies<br>";
+    echo "Your total amount is Rs.{$total}/-";
 
 ?>
