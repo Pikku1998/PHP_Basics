@@ -8,6 +8,16 @@
     line
     comment
     */
+    
+    $name = 'Prakash';
+    $age = 25;
+    $gpa = 7.15;
+    $employed = false;
+
+    echo "Hi {$name}<br>";
+    echo "You are {$age} years old.<br>";
+    echo "your CGPA is {$gpa} <br>";
+    echo "Employment Status: {$employed}"; //will display nothing if false, 1 if true.
 ?>
 
 
