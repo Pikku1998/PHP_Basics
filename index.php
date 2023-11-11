@@ -1,26 +1,3 @@
-<?php
-    echo "Hello World";
-    echo "<br>Hi Prakash";
-    // single line comment
-
-    /* 
-    multi
-    line
-    comment
-    */
-    
-    $name = 'Prakash';
-    $age = 25;
-    $gpa = 7.15;
-    $employed = false;
-
-    echo "Hi {$name}<br>";
-    echo "You are {$age} years old.<br>";
-    echo "your CGPA is {$gpa} <br>";
-    echo "Employment Status: {$employed}"; //will display nothing if false, 1 if true.
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <br>
-    <button>a button</button>
+    <form action="index.php" method="get">
+        <label for="">UserId:</label>
+        <input type="text" name='user'>
+        
+        <label for="">password:</label>
+        <input type="password" name='password'>
+
+        <input type="submit" value="Log In">
+    </form>
     
 </body>
 </html>
+
+<?php
+    echo $_GET['user'],'<br>';
+    echo $_GET['password'];
+
+?>
