@@ -8,32 +8,23 @@
 <body>
     <form action="index.php" method="post">
 
-        <label for="">Enter the radius of circle:</label>
+        <label for="">Enter a number to count to: </label>
         <br>
         
-        <input type="text" name='radius'>
+        <input type="text" name='number'>
         <br>
 
-        <input type="submit" value="Calculate">
+        <input type="submit" value="Enter">
     </form>
     <br>
 </body>
 </html>
 
+
 <?php
-    $radius = $_POST['radius'];
+    $number = $_POST['number'];
 
-    $circumference = 2 * pi() * $radius;
-    $circumference = round($circumference,2);
-
-    $area = pi() * $radius ** 2;
-    $area = round($area,2);
-
-    $volume = 4/3 * pi() * pow($radius,3);
-    $volume = round($volume,2);
-
-
-    echo "Circumference = {$circumference}cm<br>";
-    echo "Area = {$area}cm2<br>";
-    echo "Volume = {$volume}cm3<br>";
+    for($i=1; $i<=$number; $i++){
+        echo $i,"<br>";
+    }
 ?>
