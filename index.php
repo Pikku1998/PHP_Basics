@@ -6,16 +6,31 @@
     <title>Login</title>
 </head>
 <body>
-    <h3>This is Login page.</h3>
-    <a href="home.php">Home</a>
+    <h3>Login page</h3>
+    <form action="index.php" method="post">
+        <input type="text" name="user" placeholder="username">
+        <br>
+        <input type="password" name="password" placeholder="password">
+        <br>
+        <input type="submit" name='login' value="Login">
+        
+    </form>
     <br>
 </body>
 </html>
 <?php
-    session_start();
-    $_SESSION['user']='test';
-    $_SESSION['pass']='hello';
+    if(isset($_POST['login'])){
+        if(!empty($_POST['user']) && !empty($_POST['password'])){
+            session_start();
+            $_SESSION['user']=$_POST['user'];
+            $_SESSION['pass']=$_POST['password'];
+            header('location: home.php');
+        }
+        else{
+            echo 'Invalid username/password!!!';
+        }
+    }
 
-    echo $_SESSION['user'],'<br>';
-    echo $_SESSION['pass'],'<br>';
+
+
 ?>
