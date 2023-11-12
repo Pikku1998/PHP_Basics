@@ -1,21 +1,11 @@
 <?php
-    include('header.html');
-?>
+setcookie('fav_food', 'biryani', time()+1000, '/');
+setcookie('fav_drink', 'coke', time()+1000, '/');
+setcookie('fav_dessert', 'gulab jamun', time()+1000, '/');
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h3>Hi This is Home page.</h3>
-    <h4>The content of homepage goes here.....</h4>
-    
-</body>
-</html>
+// cookies can be viewed in devtools->application->cookies
 
-<?php
-    include('footer.html');
+foreach($_COOKIE as $key=>$value){
+    echo "{$key} = {$value}<br>";
+}
 ?>
