@@ -1,25 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label>Username:</label><br>
+        <input type="text" name="name"><br>
+        <label>Age:</label><br>
+        <input type="text" name="age"><br>
+        <label>Email:</label><br>
+        <input type="text" name="email"><br>
+        <input type="submit" name='login' value="Login">
+    </form>
+
+</body>
+</html>
 <?php
-$name = 'Prakash R';
-$number = '123-456-7890';
 
-echo strtolower($name),'<br>';
-echo strtoupper($name),'<br>';
-echo strrev($name),'<br>';
-echo str_shuffle($name),'<br>';
-echo str_pad($name,20,'-'),'<br>';
-echo str_replace('-','',$number),'<br>';
-echo strcmp($name, 'Eswar'),'<br>';  // returns 1 if false
-echo strcmp($name, 'Prakash R'),'<br>';  // returns 0 if true
-echo strlen($number),'<br>';
-echo strpos($number, '-'),'<br>';
-echo substr($name,3,4,),'<br>'; // (string, start_position, length)
+// SANITIZE AND VALIDATE FILTERS
 
-$number_bits = explode('-',$number); // (seperator,string) splits string into array
-foreach($number_bits as $bit){
-    echo $bit.'<br>';
+if(isset($_POST["login"])){
+
+    //Sanitizing input ->  strips unwanted chars
+
+    //$username = $_POST['name']; //if you enter a js script in input field it will be executed. Hence we user sanitized input
+    // $username = filter_input(INPUT_POST,"name", FILTER_SANITIZE_SPECIAL_CHARS);
+    // $age = filter_input(INPUT_POST, 'age', FILTER_SANITIZE_NUMBER_INT);
+    // $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
+    // echo $username,'<br>';
+    // echo $age,'<br>';
+    // echo $email,'<br>';
+
+
+    //Validating input -> returns empty string if input didn't pass validation test.
+    
+    $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT);
+    if(empty($age)){
+        echo "Invalid<br>";
+    }
+    else{
+        echo $age,'<br>';
+    }
+
+    $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
+    if(empty($email)){
+        echo "Invalid";
+    }
+    else{
+        echo $email,'<br>';
+    }
+
+
 }
-
-$name = array("Amma","Prakash", "Eswar");
-echo implode(" ",$name);
 
 ?>
