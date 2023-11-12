@@ -10,8 +10,8 @@
     <title>Home</title>
 </head>
 <body>
-    <h3>Hi This is Home page.</h3>
-    <h4>The content of homepage goes here.....</h4>
+    <h3>Hi This is About page.</h3>
+    <h4>The content of about page goes here.....</h4>
     
 </body>
 </html>
