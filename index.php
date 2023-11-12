@@ -7,37 +7,55 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <label>Username: </label>
-        <input type="text" name="username">
-        <label>Password: </label>
-        <input type="password" name="password">
+        <!-- <input type="radio" name="food" value='Biryani'>Biryani
         <br>
-        <input type="submit" name='login' value="Log In">
+        <input type="radio" name="food" value='Burger'>Burger
+        <br>
+        <input type="submit" name='confirm' value="Confirm">
+        <br>
+        <br> -->
+        <input type="checkbox" name="curry[]" value='Chicken'>Chicken
+        <br>
+        <input type="checkbox" name="curry[]" value='Fish'>Fish
+        <br>
+        <input type="submit" name='confirm'>
+
+
+
     </form>
 </body>
 </html>
 
 <?php
-// isset() return TRUE if a variable is declared and not null.
-// empty() returns True is a variable is not declared, false, null.
+    // if(isset($_POST['confirm'])){
+    //     if(isset($_POST['food'])){
+    //         $food = $_POST['food'];
+    //         echo "You selected {$food}";
+    //     }
+    //     else{
+    //         echo 'please make a selection.';
+    //     };
+    // };
+    
+    if(isset($_POST['confirm']))
+    {
+        if(isset($_POST['curry']))
+        {
+            $curries = $_POST['curry'];
+            foreach($curries as $curry)
+            {
+                echo $curry,'<br>';
+            }
+        }
+        else{
+            echo 'Select something.';
+        }
 
-// foreach($_POST as $key=>$value){
-//     echo "{$key} = {$value} <br>";
-// }
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-if(isset($_POST['login'])){
-    if(empty($username)){
-        echo 'No username';
-    }
-    elseif(empty($password)){
-        echo 'No Password';
-    }
-    else{
-        echo "Hi {$username}";
     };
-};
+
+    // foreach($curries as $curry){
+    //     echo $curry;
+    // }
 
 
 ?>
