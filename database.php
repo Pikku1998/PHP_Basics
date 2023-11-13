@@ -6,9 +6,9 @@
 
     try{
         $connection = mysqli_connect($host, $user, $pass, $db_name);
-        echo 'Connected<br>';
+        echo 'Connection Status: Connected<br>';
     }
     catch(mysqli_sql_exception){
-        echo 'Connection Failed<br>';
+        echo 'Connection to database Failed<br>';
     }
 ?>
